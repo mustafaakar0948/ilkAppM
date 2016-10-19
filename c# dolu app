@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApplication2
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnhesap_Click(object sender, EventArgs e)
+        {
+
+            int kacTane = 0;
+
+            double gelenSayi = Convert.ToDouble( number.Text );
+
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+
+            while (true)
+            {
+
+                if (gelenSayi % 2 == 0)
+                {
+
+                    gelenSayi = (gelenSayi / 2);
+
+                }
+                else
+                {
+
+                    gelenSayi = (gelenSayi * 3) + 1;
+
+                }
+
+                listBox1.Items.Add(gelenSayi);
+
+                kacTane = kacTane + 1;
+
+                if (gelenSayi == 1) { break; }
+
+            }
+
+            int[] dizimiz = new int[kacTane];
+
+            for (int forsayisi = 0; forsayisi < kacTane; forsayisi++)
+            {
+
+                dizimiz[forsayisi] = Convert.ToInt32( listBox1.Items[forsayisi] );
+
+            }
+
+            /* DİZİYİ YAZDIRMA */
+
+            for (int forsayisi = 0; forsayisi < kacTane; forsayisi++)
+            {
+
+                listBox2.Items.Add(dizimiz[forsayisi]);
+
+            }
+
+            metin.Text = Convert.ToString(gelenSayi);
+
+        }
+    }
+}
