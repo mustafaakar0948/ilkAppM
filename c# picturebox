@@ -1,0 +1,83 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApplication1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            pictureBox1.ImageLocation = "C:\\Users\\user\\Documents\\Visual Studio 2013\\Projects\\WindowsFormsApplication1\\aciktir.jpg";
+            pictureBox2.ImageLocation = "C:\\Users\\user\\Documents\\Visual Studio 2013\\Projects\\WindowsFormsApplication1\\aciktir.jpg";
+
+        }
+
+        bool pict_1_Deger = false;
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+            if (pict_1_Deger == false) {
+
+                pict_1_Deger = true;
+                pictureBox1.ImageLocation = "C:\\Users\\user\\Documents\\Visual Studio 2013\\Projects\\WindowsFormsApplication1\\kapali.jpg";
+
+                listBox2.Items.Add("Oda 1");
+                listBox1.Items.Remove("Oda 1");
+
+            }
+            else
+            {
+
+                pict_1_Deger = false;
+                pictureBox1.ImageLocation = "C:\\Users\\user\\Documents\\Visual Studio 2013\\Projects\\WindowsFormsApplication1\\aciktir.jpg";
+
+                listBox1.Items.Add("Oda 1");
+                listBox2.Items.Remove("Oda 1");
+
+            }
+
+        }
+
+        bool pict_2_Deger = false;
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+            if (pict_2_Deger == false)
+            {
+
+                pict_2_Deger = true;
+                pictureBox2.ImageLocation = "C:\\Users\\user\\Documents\\Visual Studio 2013\\Projects\\WindowsFormsApplication1\\kapali.jpg";
+
+                listBox2.Items.Add("Oda 2");
+                listBox1.Items.Remove("Oda 2");
+
+            }
+            else
+            {
+
+                pict_2_Deger = false;
+                pictureBox2.ImageLocation = "C:\\Users\\user\\Documents\\Visual Studio 2013\\Projects\\WindowsFormsApplication1\\aciktir.jpg";
+
+                listBox1.Items.Add("Oda 2");
+                listBox2.Items.Remove("Oda 2");
+
+            }
+
+        }
+    }
+}
