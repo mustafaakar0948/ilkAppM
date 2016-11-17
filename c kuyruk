@@ -25,7 +25,7 @@ void ekleme(struct kuyruk *a, int eklenecek){
           a->son++;
           a->deger[a->son] = eklenecek;
           
-          printf("Eklendi! \n\n");
+          printf(" Eklendi! \n\n");
            
      }
      
@@ -34,10 +34,11 @@ void ekleme(struct kuyruk *a, int eklenecek){
 void listele(struct kuyruk *a){
 
      int fora;
+     printf("\n");
 
      for( fora = a->bas; fora < a->son + 1; fora++ ){
      
-          printf("Sayılar: %d \t", a->deger[fora]);
+          printf(" -------------------------------: %d \n", a->deger[fora]);
           
      }
      
@@ -79,14 +80,14 @@ int main(){
 	
 	while(1){
     
-        printf("Eklemek için 1: \n Silmek için 2: \n Listele 3: \n Çıkış: 4-----");
+        printf("\n Eklemek için 1: \n Silmek için 2: \n Listele 3: \n Çıkış: 4 -- SEÇİM YAP: --- ");
         scanf("%d", &secim);
         
         if (secim == 4){ break; }
         
         switch(secim){
         
-             case 1: printf("\n\n Eklenecek değer: ");
+             case 1: printf("\n Eklenecek değer: ");
              int eklenecekDeger;
              scanf("%d", &eklenecekDeger);
              ekleme(&b, eklenecekDeger);
