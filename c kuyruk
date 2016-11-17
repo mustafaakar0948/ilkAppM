@@ -45,19 +45,22 @@ void listele(struct kuyruk *a){
      
 }
 
-int sil(struct kuyruk *a){
+void sil(struct kuyruk *a){
  
     int silinen;
     silinen = a->deger[a->bas];
-    return silinen;
+    
     
     int i;
     
     for ( i = 1; i <= a->son; i++ ){
     
-        a->deger[i-1] = a-deger[i];
+        a->deger[i-1] = a->deger[i];
             
     }
+    
+    a->son--;
+    printf("Silinen: %d \t", silinen);
     
 }
 
@@ -85,7 +88,7 @@ int main(){
              ekleme(&b, eklenecekDeger);
              break;
              
-             case 2: break;
+             case 2: sil(&b);
              case 3: listele(&b);
                       
         }         
