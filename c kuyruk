@@ -45,6 +45,22 @@ void listele(struct kuyruk *a){
      
 }
 
+int sil(struct kuyruk *a){
+ 
+    int silinen;
+    silinen = a->deger[a->bas];
+    return silinen;
+    
+    int i;
+    
+    for ( i = 1; i <= a->son; i++ ){
+    
+        a->deger[i-1] = a-deger[i];
+            
+    }
+    
+}
+
 int main(){
 	
 	setlocale(LC_ALL, "Turkish"); // Türkçe karakterleri destekler.
