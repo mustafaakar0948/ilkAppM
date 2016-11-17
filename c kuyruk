@@ -25,7 +25,7 @@ void ekleme(struct kuyruk *a, int eklenecek){
           a->son++;
           a->deger[a->son] = eklenecek;
           
-          printf("Eklendi!");
+          printf("Eklendi! \n\n");
            
      }
      
@@ -46,6 +46,8 @@ void listele(struct kuyruk *a){
 }
 
 void sil(struct kuyruk *a){
+     
+     if ( a->son == -1 ){ printf("KUYRUK BOŞ ZATEN"); }else{
  
     int silinen;
     silinen = a->deger[a->bas];
@@ -61,6 +63,8 @@ void sil(struct kuyruk *a){
     
     a->son--;
     printf("Silinen: %d \t", silinen);
+    
+}
     
 }
 
