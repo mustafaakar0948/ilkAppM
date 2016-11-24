@@ -72,6 +72,33 @@ void ekranaYazdir(struct bliste *ilkDugum){
      
 }
 
+struct bliste *basaEkle(struct bliste *ilkDugum){
+
+       int girilen;
+       printf("Girilecek değer: ");
+       scanf("%d", &girilen);
+
+       if ( ilkDugum == NULL ){
+           
+           ilkDugum = (struct bliste*)malloc(sizeof(struct bliste));
+           ilkDugum->deger = girilen;
+           ilkDugum->sonraki = NULL;
+            
+       }else{
+       
+           struct bliste *eklenecekDugum;
+           eklenecekDugum = (struct bliste*)malloc(sizeof(struct bliste));
+           eklenecekDugum->deger = girilen;
+           eklenecekDugum->sonraki = ilkDugum;
+           
+           ilkDugum = eklenecekDugum;
+           
+       }
+
+       return ilkDugum;        
+
+}
+
 int main(){
 	
 	setlocale(LC_ALL, "Turkish"); // Türkçe karakterleri destekler.
@@ -81,7 +108,7 @@ int main(){
 	
 	while(1){
     
-            printf("\n\n 1 - ekle; 2-lsite; 3-çıkış");
+            printf("\n\n 1 - ekle; 2-lsite; 3-çıkış 4 - başa ekle;");
             int secim;
             scanf("%d", &secim);
             if ( secim == 3 ){ break; }
@@ -89,6 +116,7 @@ int main(){
             switch (secim){
                    case 1: ilkDugum = ekle(ilkDugum); break;
                    case 2: ekranaYazdir(ilkDugum); break;
+                   case 4: ilkDugum = basaEkle(ilkDugum); break;
                    default : break;       
             }        
              
