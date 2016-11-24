@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <locale.h>
+
+struct bliste{
+       int deger;
+       struct bliste* sonraki;
+};
+
+struct bliste *ekle(struct bliste *ilkDugum){
+
+       int girilen;
+       printf("Girilecek değer: ");
+       scanf("%d", &girilen);
+
+       if ( ilkDugum == NULL ){
+           
+           ilkDugum = (struct bliste*)malloc(sizeof(struct bliste));
+           ilkDugum->deger = girilen;
+           ilkDugum->sonraki = NULL;
+            
+       }else{
+       
+           struct bliste *sonDugum;
+           
+           sonDugum = ilkDugum;
+           
+           while( sonDugum->sonraki != NULL ){
+           
+                  sonDugum = sonDugum->sonraki;      
+           
+           }
+           
+           struct bliste *eklenecekDugum;
+           
+           eklenecekDugum = (struct bliste*)malloc(sizeof(struct bliste));
+           
+           eklenecekDugum->sonraki = NULL;
+           
+           eklenecekDugum->deger = girilen;
+           
+           sonDugum->sonraki = eklenecekDugum;
+           
+       }
+
+       return ilkDugum;
+       
+}
+
+void ekranaYazdir(struct bliste *ilkDugum){
+     
+     struct bliste *gecici;
+     gecici = ilkDugum;
+     
+     if ( gecici == NULL ){
+      
+        printf("BOŞ!");    
+          
+     }else{
+     
+           while(1){
+                  
+                  printf("%d \t", gecici->deger);
+                  if ( gecici->sonraki == NULL ){ break; }else{
+                  
+                     gecici = gecici->sonraki;     
+                       
+                  } 
+                   
+           }
+           
+     }
+     
+}
+
+int main(){
+	
+	setlocale(LC_ALL, "Turkish"); // Türkçe karakterleri destekler.
+	
+	struct bliste *ilkDugum;
+	ilkDugum = NULL;
+	
+	while(1){
+    
+            printf("\n\n 1 - ekle; 2-lsite; 3-çıkış");
+            int secim;
+            scanf("%d", &secim);
+            if ( secim == 3 ){ break; }
+            
+            switch (secim){
+                   case 1: ilkDugum = ekle(ilkDugum); break;
+                   case 2: ekranaYazdir(ilkDugum); break;
+                   default : break;       
+            }        
+             
+    }
+
+	printf("\n\n"); system("pause");
+	return 0;
+	
+}
