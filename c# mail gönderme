@@ -1,0 +1,29 @@
+// gerekli kütüphane - > using System.Net.Mail;
+
+            MailMessage ePosta = new MailMessage();
+            ePosta.From = new MailAddress("ahmetyildirim8596@gmail.com");
+            //
+            ePosta.To.Add("dlkrnugur@gmail.com");
+            //
+            //
+            ePosta.Subject = "burası KOnu";
+            //
+            ePosta.Body = "burası posta emtin kısmı";
+            //
+            SmtpClient smtp = new SmtpClient();
+            //
+            smtp.Credentials = new System.Net.NetworkCredential("ahmetyildirim8596@gmail.com", "iex96155Ahd5");
+            smtp.Port = 587;
+            smtp.Host = "smtp.gmail.com";
+            smtp.EnableSsl = true;
+            object userState = ePosta;
+            try
+            {
+                smtp.SendAsync(ePosta, (object)ePosta);
+
+                MessageBox.Show("Mail Gönderildi!");
+            }
+            catch (SmtpException ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message, "Mail Gönderme Hatasi");
+            }
