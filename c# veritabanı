@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+
+namespace WindowsFormsApplication1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            MySqlConnection baglan = new MySqlConnection("Server=localhost;Database=veritab;Uid=root;Pwd='';");
+
+            baglan.Open();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM ogrenciler", baglan);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while ( reader.Read() ){
+
+                listBox1.Items.Add(reader.GetString(0) + "\t" + reader.GetString(1) + "\t" + reader.GetString(2) + "\t" + reader.GetString(3));
+
+            }
+
+        }
+    }
+}
